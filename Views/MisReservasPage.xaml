@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeClubAppp.Views.MisReservasPage"
+             Title="Mis Reservas"
+             BackgroundColor="#F4F4F4">
+
+    <ScrollView Padding="15">
+        <VerticalStackLayout Spacing="15">
+
+            <Label x:Name="SinReservasLabel" 
+                   Text="Aún no tenés reservas realizadas." 
+                   TextColor="#64748B" 
+                   HorizontalOptions="Center" 
+                   Margin="0,30,0,0" 
+                   IsVisible="False" />
+
+            <CollectionView x:Name="ReservasCollectionView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="10" Padding="15" Margin="0,0,0,10" HasShadow="True">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0" Spacing="4">
+                                    <Label Text="{Binding Cancha}" FontAttributes="Bold" FontSize="16" TextColor="#0F172A" />
+                                    <Label Text="{Binding FechaHora, StringFormat='Fecha: {0:dd/MM/yyyy}'}" FontSize="13" TextColor="#64748B" />
+                                    <Label Text="{Binding PrecioFinal, StringFormat='Total Pagado: ${0:N0}'}" FontAttributes="Bold" TextColor="#16A34A" />
+                                </VerticalStackLayout>
+
+                                <Button Grid.Column="1" 
+                                        Text="Cancelar" 
+                                        BackgroundColor="#EF4444" 
+                                        TextColor="White" 
+                                        FontAttributes="Bold"
+                                        CornerRadius="6"
+                                        VerticalOptions="Center"
+                                        Clicked="OnCancelarReservaClicked" 
+                                        CommandParameter="{Binding .}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

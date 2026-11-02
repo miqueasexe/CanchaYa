@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeClubAppp.Views.LoginPage"
+             Title="Iniciar Sesión"
+             BackgroundColor="#0F172A">
+
+    <ScrollView VerticalOptions="Center">
+        <VerticalStackLayout Spacing="20" Padding="30" MaximumWidthRequest="400">
+
+            <Label Text="LeClub" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   TextColor="White" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="Reserva de Canchas" 
+                   FontSize="16" 
+                   TextColor="#94A3B8" 
+                   HorizontalOptions="Center" 
+                   Margin="0,-15,0,20" />
+
+            <Entry x:Name="txtEmail" 
+                   Placeholder="Correo Electrónico" 
+                   Text="miqueas@leclub.com"
+                   PlaceholderColor="#94A3B8" 
+                   TextColor="White" 
+                   BackgroundColor="#1E293B" 
+                   HeightRequest="50" />
+
+            <Entry x:Name="txtPassword" 
+                   Placeholder="Contraseña" 
+                   IsPassword="True" 
+                   Text="123"
+                   PlaceholderColor="#94A3B8" 
+                   TextColor="White" 
+                   BackgroundColor="#1E293B" 
+                   HeightRequest="50" />
+
+            <Button Text="INGRESAR" 
+                    BackgroundColor="#16A34A" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    HeightRequest="50" 
+                    CornerRadius="8" 
+                    Clicked="OnLoginClicked" />
+
+            <Button Text="Crear una Cuenta" 
+                    BackgroundColor="Transparent" 
+                    TextColor="#38BDF8" 
+                    Clicked="OnRegisterClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

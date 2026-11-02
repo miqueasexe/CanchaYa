@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeClubAppp.Views.CanchasPage"
+             Title="Canchas Disponibles"
+             BackgroundColor="#F4F4F4">
+
+    <!-- BARRA SUPERIOR DE HERRAMIENTAS (ÚNICA Y SIN REPETIR) -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="👤 Mi Perfil" 
+                     Clicked="OnVerPerfilClicked" 
+                     Order="Primary" />
+        <ToolbarItem Text="Cerrar Sesión" 
+                     Clicked="OnCerrarSesionClicked" 
+                     Order="Primary" />
+    </ContentPage.ToolbarItems>
+
+    <!-- DISEÑO PRINCIPAL -->
+    <ScrollView Padding="15">
+        <VerticalStackLayout Spacing="15">
+
+            <!-- Botón de acceso a Mis Reservas -->
+            <Button Text="📋 Ver Mis Reservas"
+                    BackgroundColor="#0F172A"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="45"
+                    Clicked="OnVerMisReservasClicked" />
+
+            <Label Text="Seleccioná una cancha para reservar:" FontSize="16" FontAttributes="Bold" TextColor="#333333" />
+
+            <CollectionView x:Name="CanchasCollectionView" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="10" Padding="15" Margin="0,0,0,10" HasShadow="True">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout Grid.Column="0" Spacing="4">
+                                    <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="16" TextColor="#0F172A" />
+                                    <Label Text="{Binding TipoSuperficie}" FontSize="13" TextColor="#64748B" />
+                                    <Label Text="{Binding PrecioHora, StringFormat='${0:N0} / hora'}" FontAttributes="Bold" TextColor="#16A34A" />
+                                </VerticalStackLayout>
+
+                                <Button Grid.Column="1"
+                                        Text="Reservar"
+                                        BackgroundColor="#2563EB"
+                                        TextColor="White"
+                                        FontAttributes="Bold"
+                                        CornerRadius="6"
+                                        VerticalOptions="Center"
+                                        Clicked="OnReservarCanchaClicked"
+                                        CommandParameter="{Binding .}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

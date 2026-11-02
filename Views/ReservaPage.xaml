@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeClubAppp.Views.ReservaPage"
+             Title="Completar Reserva"
+             BackgroundColor="#F4F4F4">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+
+            <Frame BackgroundColor="#1B4D3E" CornerRadius="10" Padding="15">
+                <VerticalStackLayout Spacing="5">
+                    <Label x:Name="NombreCanchaLabel" Text="Cancha Fútbol 5" FontSize="20" FontAttributes="Bold" TextColor="White" />
+                    <Label x:Name="PrecioCanchaLabel" Text="$10.000 / hora" FontSize="16" FontAttributes="Bold" TextColor="#A3E635" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame x:Name="FrameDescuentoFrecuencia" BackgroundColor="#DCFCE7" BorderColor="#22C55E" CornerRadius="10" Padding="10" IsVisible="False">
+                <Label Text="🔥 ¡20% OFF por ser cliente frecuente!" FontAttributes="Bold" TextColor="#15803D" HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Nombre del Jugador:" TextColor="#333333" />
+                    <Entry x:Name="NombreClienteEntry" TextColor="#333333" BackgroundColor="White" />
+
+                    <Label Text="Fecha de Reserva:" TextColor="#333333" />
+                    <DatePicker x:Name="FechaPicker" TextColor="#333333" BackgroundColor="White" />
+
+                    <Label Text="Horario del Turno:" TextColor="#333333" />
+                    <Picker x:Name="HorarioPicker" TextColor="#333333" TitleColor="#888888" BackgroundColor="White" />
+
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,10,0,0">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="Usar 500 Puntos" FontAttributes="Bold" TextColor="#333333" />
+                            <Label Text="Descuento de $2.000" FontSize="12" TextColor="#666666" />
+                        </VerticalStackLayout>
+                        <Switch Grid.Column="1" x:Name="SwitchPuntos" Toggled="OnPuntosToggled" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White" CornerRadius="10" Padding="15">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label Grid.Column="0" Text="Total a Pagar:" FontAttributes="Bold" FontSize="18" TextColor="#333333" />
+                    <Label Grid.Column="1" x:Name="PrecioFinalLabel" Text="$10.000" FontAttributes="Bold" FontSize="20" TextColor="#2E7D32" />
+                </Grid>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0" Text="Volver" BackgroundColor="#757575" TextColor="White" Clicked="OnVolverClicked" />
+                <Button Grid.Column="1" Text="Confirmar Reserva" BackgroundColor="#2E7D32" TextColor="White" Clicked="OnConfirmarReservaClicked" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeClubAppp.Views.PerfilPage"
+             Title="Mi Perfil"
+             BackgroundColor="#0F172A">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20" HorizontalOptions="Center" MaximumWidthRequest="400">
+
+            <!-- Tarjeta de Usuario -->
+            <Frame BackgroundColor="#1E293B" CornerRadius="12" Padding="20" HasShadow="True" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+
+                    <!-- Avatar / Ícono -->
+                    <Frame CornerRadius="40" HeightRequest="80" WidthRequest="80" BackgroundColor="#2563EB" Padding="0" HorizontalOptions="Center" HasShadow="False" BorderColor="Transparent">
+                        <Label Text="👤" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Label x:Name="lblNombre" FontSize="22" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+                    <Label x:Name="lblEmail" FontSize="14" TextColor="#94A3B8" HorizontalOptions="Center" />
+
+                    <!-- Insignia de Nivel -->
+                    <Frame x:Name="frameNivel" CornerRadius="20" Padding="10,5" HorizontalOptions="Center" Margin="0,10,0,0" BorderColor="Transparent">
+                        <Label x:Name="lblNivel" FontSize="12" FontAttributes="Bold" TextColor="White" />
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tarjeta de Puntos y Estadísticas -->
+            <Frame BackgroundColor="#1E293B" CornerRadius="12" Padding="20" HasShadow="True" BorderColor="Transparent">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Resumen de Fidelidad" FontSize="16" FontAttributes="Bold" TextColor="White" />
+
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" ColumnSpacing="10">
+                        <!-- Puntos -->
+                        <Frame Grid.Column="0" BackgroundColor="#0F172A" Padding="15" CornerRadius="8" BorderColor="Transparent">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Puntos LeClub" FontSize="12" TextColor="#94A3B8" />
+                                <Label x:Name="lblPuntos" FontSize="20" FontAttributes="Bold" TextColor="#38BDF8" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <!-- Total Reservas -->
+                        <Frame Grid.Column="1" BackgroundColor="#0F172A" Padding="15" CornerRadius="8" BorderColor="Transparent">
+                            <VerticalStackLayout Spacing="5">
+                                <Label Text="Reservas Totales" FontSize="12" TextColor="#94A3B8" />
+                                <Label x:Name="lblTotalReservas" FontSize="20" FontAttributes="Bold" TextColor="#16A34A" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+
+                    <Label x:Name="lblBeneficioInfo" FontSize="12" TextColor="#CBD5E1" Margin="0,5,0,0" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Botón Volver -->
+            <Button Text="Volver al Catálogo" 
+                    BackgroundColor="#334155" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    HeightRequest="45" 
+                    CornerRadius="8" 
+                    Clicked="OnVolverClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
